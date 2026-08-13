@@ -19,6 +19,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <aws.sdk.version>2.20.26</aws.sdk.version>
     </properties>
 
     <dependencies>
@@ -47,12 +48,30 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
+        <!-- AWS SDK for S3 -->
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>apache-client</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <!-- Spring Session Data Redis for distributed session management -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+        </dependency>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
